@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/layout::head}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="~{layout/layout::header}"></header>
+
+        <div class="py-4 ml-5 mr-5">
+            <div class="card bg-light">
+                <div class="card-header" th:text="${title}"></div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a th:href="@{/form}" class="btn btn-primary">Add Employee</a>
+                    </h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Fecha</th>
+                                <th>Number Phone</th>
+                                <th>Gender</th>
+                                <th>Salary</th>
+                                <th>Details</th>
+                                <th>Edit</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="employee : ${employees}">
+                                <td th:text="${employee.id}"></td>
+                                <td th:text="${employee.firstName}"></td>
+                                <td th:text="${employee.lastName}"></td>
+                                <td th:text="${employee.email}"></td>
+                                <td th:text="${employee.date}"></td>
+                                <td th:text="${employee.phoneNumber}"></td>
+                                <td th:text="${employee.gender}"></td>
+                                <td th:text="${employee.salary}"></td> 
+                                <td><a class="btn btn-info btn-sm" th:href="@{/view/}+${employee.id}">Details</a></td>
+                                <td><a class="btn btn-warning btn-sm" th:href="@{/form}+${employee.id}">Edit</a></td>
+                                <td><a class="btn btn-danger btn-sm" th:href="@{/delete/}+${employee.id}" onclick="return confirm('Are you sure to eliminate the employee?');">Remove</a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav th:replace="~{paginator-nav::paginator}">
+
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="~{layout/layout::footer}"></footer>
+    </body>
+</html>

@@ -80,6 +80,10 @@ public class PageRender<T> {
         this.pages = pages;
     }
     
+    public boolean isFirst(){
+        return page.isFirst();
+    }
+    
     public boolean isLast(){
         return page.isLast();
     }

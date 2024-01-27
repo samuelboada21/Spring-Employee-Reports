@@ -43,7 +43,7 @@ public class Employee {
     private String gender;
     
     @NotNull
-    private double saslary;
+    private double salary;
     
     @NotNull
     @Temporal(TemporalType.DATE)
@@ -101,12 +101,12 @@ public class Employee {
         this.gender = gender;
     }
 
-    public double getSaslary() {
-        return saslary;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setSaslary(double saslary) {
-        this.saslary = saslary;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public Date getDate() {
