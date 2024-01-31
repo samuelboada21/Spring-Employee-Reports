@@ -37,7 +37,7 @@ public class Employee {
     private String email;
     
     @NotNull
-    private String phoneNumber;
+    private int phoneNumber;
     
     @NotEmpty
     private String gender;
@@ -47,7 +47,7 @@ public class Employee {
     
     @NotNull
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     public Employee() {
@@ -85,11 +85,11 @@ public class Employee {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
