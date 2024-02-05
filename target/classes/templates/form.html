@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/layout::head}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="~{layout/layout::header}"></header>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                    <h1 class="text-center" th:text="${title}"></h1>
+                    <div class="card-body">
+                        <form th:action="@{/form}" th:object="${employee}" method="post">
+                            <input type="hidden" th:field="*{id}" th:value="${employee.id}"/>
+                            <div class="form-group">
+                                <label>First Name:</label>
+                                <input type="text" th:field="*{firstName}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name:</label>
+                                <input type="text" th:field="*{lastName}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input type="email" th:field="*{email}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Date:</label>
+                                <input type="date" th:field="*{date}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number:</label>
+                                <input type="number" th:field="*{phoneNumber}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Salary:</label>
+                                <input type="number" th:field="*{salary}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Gender:</label>
+                                <select class="form-control" th:field="*{gender}">
+                                    <option th:value='M'>Male</option>
+                                    <option th:value='F'>Female</option>
+                                    <option th:value='O'>Other</option>
+                                </select>
+                            </div>
+                            <div class="box-footer">
+                                <input type="submit" value="Save" class="btn btn-primary"/>
+                               
+                                <a class="btn btn-danger" role="button" href="/">Cancel</a>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="~{layout/layout::footer}"></footer>
+    </body>
+</html>
