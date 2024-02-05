@@ -1,5 +1,3 @@
-FROM amazoncorretto:17-alpine.jdk
-
-COPY target/employee-reports-0.0.1-SNAPSHOT.jar app.jar
-
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+FROM adoptopenjdk:17-jdk-hotspot
+COPY target/employee-reports-0.0.1-SNAPSHOT.jar /app.jar
+CMD ["java", "-jar", "/app.jar"]
